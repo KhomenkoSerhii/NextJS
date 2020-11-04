@@ -1,0 +1,118 @@
+@import "~antd/dist/antd.css";
+
+/* ant styles */
+
+.ant-select-selector {
+  height: 50px !important;
+  border-radius: 8px !important;
+}
+.ant-select-selection-item {
+  align-items: center;
+  display: flex;
+}
+
+.ant-input {
+  width: 100%;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+  color: white;
+  background: #00a7e1;
+  border-color: unset;
+  border: 1px solid #00a7e1;
+}
+
+.ant-col {
+  padding: 0 !important;
+}
+
+table > thead > tr > th {
+  font-family: "Exo-SemiBold";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 0 !important;
+}
+.ant-table-column-sorters {
+  padding: 16px 8px;
+}
+.ant-row {
+  justify-content: center;
+  margin: 0 !important;
+}
+.ant-table-column-sorters span {
+  text-align: center;
+}
+.ant-rate {
+  color: #f1a800;
+}
+
+.ant-table-tbody > tr {
+  cursor: pointer;
+  > td {
+    padding: 16px 3px;
+    // width: max-content;
+  }
+}
+.ant-table-column-sorters {
+  padding-left: 0;
+}
+.ant-table-cell:nth-child(3) {
+  justify-content: left !important;
+}
+.hide-block {
+  display: none;
+}
+.show-block {
+  display: block;
+}
+.table-row-private {
+  background-color: #dcdcdc;
+  // pointer-events: none;
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+.ant-select-item-option-content {
+  display: flex;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 1100px) {
+  .ant-input {
+    width: 300px !important;
+  }
+  h1 {
+    font-size: 2rem !important;
+    line-height: 33px !important;
+  }
+  .ant-select-selector {
+    height: 30px !important;
+  }
+  .ant-select-item-option-content {
+    h4 {
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  table > thead > tr > th {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ant-table table {
+    width: unset;
+  }
+}
+@media screen and (max-width: 414px) {
+  .ant-input {
+    width: 275px !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .ant-table-column-sorters {
+    display: flex;
+    justify-content: center;
+  }
+}

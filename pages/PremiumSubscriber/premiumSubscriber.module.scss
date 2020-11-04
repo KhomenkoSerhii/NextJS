@@ -1,0 +1,297 @@
+.premiumBlock {
+  padding: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  .mainBlock {
+    margin-top: 100px;
+    margin-bottom: 60px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    .premiumH1 {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 55px;
+      line-height: 73px;
+    }
+    p {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 28px;
+    }
+    .premiumSelectors {
+      display: flex;
+      justify-content: space-evenly;
+      width: 80%;
+      .premiumSelect {
+        width: 320px;
+        h4 {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .titleBlock {
+    border-radius: 8px 8px 0px 0px;
+    max-width: 1100px;
+    height: 100%;
+    background-color: white;
+    margin: 0 auto;
+    .article {
+      padding: 100px 75px 100px 75px;
+      button {
+        height: 48px;
+        &:nth-child(1n + 2) {
+          border-left: none;
+        }
+        &:active {
+          color: white;
+          background: #00a7e1;
+          border-color: unset;
+          border: 1px solid #00a7e1;
+        }
+        .iconStar {
+          width: 16px;
+          height: 16px;
+        }
+      }
+      .mainBlockHeader {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .mainHeader {
+          max-width: 415px;
+        }
+      }
+      table > tbody > tr,
+      table > thead > tr {
+        height: 85px;
+      }
+    }
+    .premiumSearch {
+      position: relative;
+      input {
+        height: 48px;
+        width: 500px;
+        border-radius: 8px;
+      }
+      .findIcon {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+      }
+    }
+  }
+  .premiumButtonBlock {
+    display: flex;
+    justify-content: center;
+    button {
+      width: 297px;
+      height: 48px;
+      border-radius: 8px;
+      border: 2px solid #00a7e1;
+      color: #00a7e1;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .infiniteWrapper {
+    position: relative;
+    .tableRowPopup {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      transform: translateX(-50%);
+      width: 587px;
+      height: 72px;
+      align-items: center;
+      background: #ffffff;
+      box-shadow: 0px 20px 56px 8px rgba(18, 25, 91, 0.1);
+      border-radius: 8px;
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.customTooltip {
+  .tooltipMainBlock {
+    padding: 10px;
+    a {
+      display: flex;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}
+.dotsIcon {
+  .dots {
+    cursor: pointer;
+  }
+}
+.default {
+  display: none !important;
+}
+.proItem {
+  width: 40px;
+  height: 17px;
+  color: white;
+  background-color: #f1a800;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+}
+@media screen and (max-width: 1100px) {
+  .article {
+    padding: 15px 15px 10px 15px !important;
+    button {
+      height: 32px !important;
+    }
+  }
+
+  .premiumSearch {
+    margin: 0 5px;
+    input {
+      height: 32px !important;
+    }
+    .findIcon {
+      position: absolute;
+      top: 9px !important;
+      right: 9px !important;
+    }
+  }
+  .premiumSelectors {
+    h4 {
+      font-size: 14px;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .scrollColumn {
+    overflow-x: hidden;
+  }
+  .infiniteWrapper {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .premiumBlock {
+    padding: 10px;
+
+    .mainBlock {
+      margin-top: 50px;
+    }
+    .premiumSelectors {
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 120px;
+      align-items: center;
+      width: 100%;
+    }
+    p {
+      font-size: 1rem !important;
+      line-height: 18px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 774px) {
+  .mainBlockHeader {
+    justify-content: center !important;
+  }
+  .premiumSearch {
+    margin-top: 10px;
+    input {
+      height: 32px !important;
+    }
+    .findIcon {
+      position: absolute;
+      top: 9px !important;
+      right: 3px !important;
+    }
+  }
+  .premiumButtonBlock {
+    button {
+      height: 30px !important;
+      font-size: 1rem !important;
+    }
+  }
+  .infiniteWrapper {
+    .tableRowPopup {
+      width: 387px !important;
+
+      p {
+        padding: 20px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 464px) {
+  .titleBlock {
+    .article {
+      .mainBlockHeader {
+        .mainHeader {
+          text-align: center;
+          button {
+            border: 1px solid #dbdae5;
+            border-radius: 8px !important;
+            margin-right: 5px;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 414px) {
+  .article {
+    padding: 15px 0px 10px 0px !important;
+  }
+  .premiumSelect {
+    width: 250px !important;
+  }
+  .titleBlock {
+    table > tbody > tr,
+    table > thead > tr {
+      height: 55px !important;
+    }
+  }
+  .dotsIcon {
+    .dots {
+      transform: rotate(90deg);
+    }
+  }
+  .premiumSelectors {
+    h4 {
+      font-size: 13px;
+    }
+  }
+  .infiniteWrapper {
+    .tableRowPopup {
+      width: 280px !important;
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .premiumButtonBlock button {
+    width: 200px !important;
+  }
+}
