@@ -2,58 +2,59 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Row, Col, Button, Input, Select, Table, Tooltip, Rate } from "antd";
 
+import EditableDescription from "../../components/EditableDescription/EditableDescription";
+
 import classes from "./premiumSubscriber.module.scss";
 
 let arrayForHoldingData = [];
-const data = [
-  {
-    key: 1,
-    changep: "-11",
-    keyword: "John Brown",
-    volume: 32,
-    change: "-499",
-    description: "lorem lorem fwe fwe fwe fwe fwe fwef wefw efew few 1",
-    star: 1,
-    status: "public",
-  },
-  {
-    key: 2,
-    changep: "+22",
-    keyword: "Jim Green",
-    volume: 42,
-    change: "+399",
-    description: "lorem lorem2",
-    star: 1,
-    status: "private",
-  },
-  {
-    key: 3,
-    changep: "-33",
-    keyword: "Joe Black",
-    volume: 52,
-    change: "-299",
-    description: "lorem lorem3",
-    star: 0,
-    status: "private",
-  },
-  {
-    key: 4,
-    changep: "+44",
-    keyword: "Jim Red",
-    volume: 62,
-    change: "+199",
-    description: "lorem lorem4",
-    star: 0,
-    status: "public",
-  },
-];
 
 const PremiumSubscriber = () => {
   const router = useRouter();
-
+  const [data, setData] = useState([
+    {
+      key: 0,
+      changep: "-11",
+      keyword: "John Brown",
+      volume: 32,
+      change: "-499",
+      description: "lorem lorem fwe fwe fwe fwe fwe fwef wefw efew few 1",
+      star: 1,
+      status: "public",
+    },
+    {
+      key: 1,
+      changep: "+22",
+      keyword: "Jim Green",
+      volume: 42,
+      change: "+399",
+      description: "lorem lorem2",
+      star: 1,
+      status: "private",
+    },
+    {
+      key: 2,
+      changep: "-33",
+      keyword: "Joe Black",
+      volume: 52,
+      change: "-299",
+      description: "lorem lorem3",
+      star: 0,
+      status: "private",
+    },
+    {
+      key: 3,
+      changep: "+44",
+      keyword: "Jim Red",
+      volume: 62,
+      change: "+199",
+      description: "lorem lorem4",
+      star: 0,
+      status: "public",
+    },
+  ]);
   // CONST
-  const { Option } = Select;
 
+  const { Option } = Select;
   // HOOKS
   const dataPerPage = 1;
   const [dataSource, setdataSource] = useState(data);
@@ -63,7 +64,9 @@ const PremiumSubscriber = () => {
   const [screenWidth, setScreenWidth] = useState();
   const [customPopup, setCustomPopup] = useState(false);
   const [mousemove, setmouseMove] = useState({ y: 0 });
+
   // EVENTS
+
   const loopWithSlice = (start, end) => {
     const slicedData = data.slice(start, end);
     arrayForHoldingData = [...arrayForHoldingData, ...slicedData];
@@ -75,6 +78,7 @@ const PremiumSubscriber = () => {
   }, []);
 
   useEffect(() => {
+    setdataSource(data);
     setScreenWidth(window.innerWidth);
     const handleReSize = () => {
       setScreenWidth(window.innerWidth);
@@ -83,7 +87,7 @@ const PremiumSubscriber = () => {
     return () => {
       window.removeEventListener("resize", handleReSize);
     };
-  }, [screenWidth]);
+  }, [screenWidth, data]);
 
   const handleShowMoreData = () => {
     loopWithSlice(next, next + dataPerPage);
@@ -150,9 +154,15 @@ const PremiumSubscriber = () => {
       width: "45%",
       className: `${screenWidth < 515 && "hide-block"}`,
       render: (text, event) => (
-        <>
-          <span>{text}</span>
-        </>
+        <div className={classes.mainTableBlock}>
+          <EditableDescription
+            event={event}
+            text={text}
+            dataSource={dataSource}
+            classes={classes}
+            setData={setData}
+          />
+        </div>
       ),
     },
 
@@ -182,11 +192,11 @@ const PremiumSubscriber = () => {
               <img src="/chartUp.svg" alt="" />
             </>
           ) : (
-            <>
-              <span style={{ color: "#CA1818" }}>{text}</span>
-              <img src="/chartDown.svg" alt="" />
-            </>
-          )}
+              <>
+                <span style={{ color: "#CA1818" }}>{text}</span>
+                <img src="/chartDown.svg" alt="" />
+              </>
+            )}
         </Row>
       ),
     },
@@ -203,11 +213,11 @@ const PremiumSubscriber = () => {
               <img src="/ArrowUp.svg" alt="" />
             </>
           ) : (
-            <>
-              <span style={{ color: "#CA1818", paddingRight: 2 }}>{text}</span>
-              <img src="/arrowDown.svg" alt="" />
-            </>
-          )}
+              <>
+                <span style={{ color: "#CA1818", paddingRight: 2 }}>{text}</span>
+                <img src="/arrowDown.svg" alt="" />
+              </>
+            )}
         </Row>
       ),
     },
@@ -357,7 +367,7 @@ const PremiumSubscriber = () => {
                       <Table
                         rowClassName={(index) =>
                           index.status === "private" &&
-                          selectValue === "Last 6 month"
+                            selectValue === "Last 6 month"
                             ? "table-row-private"
                             : null
                         }
