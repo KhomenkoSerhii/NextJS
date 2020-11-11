@@ -156,6 +156,23 @@
   justify-content: center;
   margin-left: 10px;
 }
+.mainTableBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    height: 25px !important;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .saveButton {
+    color: white;
+    background-color: #5aac44;
+    margin-right: 5px;
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .article {
     padding: 15px 15px 10px 15px !important;
