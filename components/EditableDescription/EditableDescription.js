@@ -3,10 +3,12 @@ import { Input } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 
 const EditableDescription = ({ event, text, dataSource, classes, setData }) => {
-  const { TextArea } = Input;
-  const [textAreaValue, setTextAreaValue] = useState(text);
 
+  const { TextArea } = Input;
+
+  const [textAreaValue, setTextAreaValue] = useState(text);
   const [currEditableItem, setCurrEditableItem] = useState("");
+
   const textAreaHandleChange = (e) => {
     setTextAreaValue(e.target.value);
   };
