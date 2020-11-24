@@ -3,12 +3,10 @@ import { Input } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 
 const EditableDescription = ({ event, text, dataSource, classes, setData }) => {
-
   const { TextArea } = Input;
-
   const [textAreaValue, setTextAreaValue] = useState(text);
-  const [currEditableItem, setCurrEditableItem] = useState("");
 
+  const [currEditableItem, setCurrEditableItem] = useState("");
   const textAreaHandleChange = (e) => {
     setTextAreaValue(e.target.value);
   };
@@ -38,37 +36,38 @@ const EditableDescription = ({ event, text, dataSource, classes, setData }) => {
                     return item;
                   })
                 );
-
                 setCurrEditableItem(-1);
               }}
             >
               Save
             </button>
 
-            <CloseOutlined onClick={() => {
-              setCurrEditableItem(-1)
-              setTextAreaValue(text)
-            }} />
+            <CloseOutlined
+              onClick={() => {
+                setCurrEditableItem(-1);
+                setTextAreaValue(text);
+              }}
+            />
           </div>
         </div>
       ) : (
-          <>
-            <span>{text}</span>
-            <div>
-              <button
-                type="primary"
-                style={{
-                  height: 25,
-                }}
-                onClick={() => {
-                  setCurrEditableItem(event.key);
-                }}
-              >
-                Edit
+        <>
+          <span>{text}</span>
+          <div>
+            <button
+              type="primary"
+              style={{
+                height: 25,
+              }}
+              onClick={() => {
+                setCurrEditableItem(event.key);
+              }}
+            >
+              Edit
             </button>
-            </div>
-          </>
-        )}
+          </div>
+        </>
+      )}
     </>
   );
 };

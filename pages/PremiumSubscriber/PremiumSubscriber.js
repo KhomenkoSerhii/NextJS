@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Row, Col, Button, Input, Select, Table, Tooltip, Rate } from "antd";
-
+import { PhoneOutlined, CloseOutlined } from "@ant-design/icons";
 import EditableDescription from "../../components/EditableDescription/EditableDescription";
 
 import classes from "./premiumSubscriber.module.scss";
@@ -90,8 +90,7 @@ const PremiumSubscriber = () => {
   }, [screenWidth, data]);
 
   const handleShowMoreData = () => {
-    loopWithSlice(next, next + dataPerPage);
-    setNext(next + dataPerPage);
+    setdataSource([...dataSource, ...dataSource]);
   };
 
   const filterData = (e) => {
@@ -192,11 +191,11 @@ const PremiumSubscriber = () => {
               <img src="/chartUp.svg" alt="" />
             </>
           ) : (
-              <>
-                <span style={{ color: "#CA1818" }}>{text}</span>
-                <img src="/chartDown.svg" alt="" />
-              </>
-            )}
+            <>
+              <span style={{ color: "#CA1818" }}>{text}</span>
+              <img src="/chartDown.svg" alt="" />
+            </>
+          )}
         </Row>
       ),
     },
@@ -213,11 +212,11 @@ const PremiumSubscriber = () => {
               <img src="/ArrowUp.svg" alt="" />
             </>
           ) : (
-              <>
-                <span style={{ color: "#CA1818", paddingRight: 2 }}>{text}</span>
-                <img src="/arrowDown.svg" alt="" />
-              </>
-            )}
+            <>
+              <span style={{ color: "#CA1818", paddingRight: 2 }}>{text}</span>
+              <img src="/arrowDown.svg" alt="" />
+            </>
+          )}
         </Row>
       ),
     },
@@ -262,6 +261,13 @@ const PremiumSubscriber = () => {
     { time: "Last 3 month" },
     { time: "Last 6 month", pro: "pro" },
   ];
+
+  const [onOpen, setOnOpen] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setOnOpen(true);
+    }, 3000);
+  }, []);
 
   return (
     <>
@@ -367,7 +373,7 @@ const PremiumSubscriber = () => {
                       <Table
                         rowClassName={(index) =>
                           index.status === "private" &&
-                            selectValue === "Last 6 month"
+                          selectValue === "Last 6 month"
                             ? "table-row-private"
                             : null
                         }
@@ -410,7 +416,29 @@ const PremiumSubscriber = () => {
           </div>
         </div>
         <div className={classes.premiumButtonBlock}>
-          <Button onClick={() => handleShowMoreData()}>Show More Trends</Button>
+          <Button
+            onClick={() => {
+              handleShowMoreData();
+            }}
+          >
+            Show More Trends
+          </Button>
+        </div>
+
+        <div
+          className={classes.customNotification}
+          style={{ right: onOpen ? "0" : "-999px" }}
+        >
+          <div>
+            <div className={classes.closeIcon}>
+              <CloseOutlined onClick={() => setOnOpen(false)} />
+            </div>
+            <h3>Do you have questions?</h3>
+            <p>Call or text today, we are here to help!</p>
+            <h3 className={classes.phone}>
+              <PhoneOutlined /> 855-888-9769
+            </h3>
+          </div>
         </div>
       </div>
     </>

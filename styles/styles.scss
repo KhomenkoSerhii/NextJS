@@ -1,7 +1,9 @@
 @import "~antd/dist/antd.css";
 
 /* ant styles */
-
+td.ant-table-column-sort {
+  background: unset;
+}
 .ant-select-selector {
   height: 50px !important;
   border-radius: 8px !important;
@@ -17,7 +19,7 @@
 
 .ant-btn:hover,
 .ant-btn:focus {
-  color: white;
+  color: white !important;
   background: #00a7e1;
   border-color: unset;
   border: 1px solid #00a7e1;
