@@ -8,12 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.2.2",
+    "@ant-design/icons": "^4.3.0",
     "antd": "^4.7.2",
+    "formik": "^2.2.5",
     "install": "^0.13.0",
     "next": "9.5.5",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "sass": "^1.27.0"
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.27.0",
+    "yarn": "^1.22.10",
+    "yup": "^0.31.0"
   }
 }

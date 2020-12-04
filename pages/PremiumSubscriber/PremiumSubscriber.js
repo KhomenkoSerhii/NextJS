@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Row, Col, Button, Input, Select, Table, Tooltip, Rate } from "antd";
 import { PhoneOutlined, CloseOutlined } from "@ant-design/icons";
 import EditableDescription from "../../components/EditableDescription/EditableDescription";
+import Timer from "../../components/countDownTimer/Timer";
 
 import classes from "./premiumSubscriber.module.scss";
 
@@ -315,7 +316,7 @@ const PremiumSubscriber = () => {
             </Select>
           </div>
           <span style={{ color: "white", marginTop: 10 }}>
-            Next update in 16 minutes 34 seconds
+            <Timer />
           </span>
         </div>
 
