@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import classes from './SignIn.module.scss';
+import classes from './SignUp.module.scss';
 import { Formik, yupToFormErrors, useField, Form } from 'formik';
 import * as Yup from 'yup';
 // import Form from 'antd/lib/form/Form';
@@ -12,7 +12,7 @@ const CustomTextInput = ({ label, ...props }) => {
     return (
         <>
             <label htmlFor={props.id || props.name}>{label}</label>
-            <input className="text-input" {...field} {...props} />
+            <input className={classes.textInput} {...field} {...props} />
             {meta.touched && meta.error ? (
                 <div className={classes.error}>{meta.error}</div>
             ) : null}
@@ -50,20 +50,23 @@ const CustomSelect = ({ label, ...props }) => {
     )
 }
 
-const SignIn = () => {
+const SignUp = () => {
     const router = useRouter()
     return (
 
         <>
-            <h1 className={classes.heading}> Sign In</h1>
+            <h1 className={classes.heading}> Sign Up</h1>
             <Formik
                 initialValues={{
+                    fullName: '',
                     email: '',
                     password: '',
                     acceptedTerms: false,
                     specialPower: '',
                 }}
                 validationSchema={Yup.object({
+                    fullName: Yup.string()
+                        .required('Full Name is required'),
                     email: Yup.string()
                         .email('Invalid email address')
                         .required('Required'),
@@ -84,22 +87,23 @@ const SignIn = () => {
                 }}
             >
                 {props => (
-                    <Form className={classes.signIn}>
+                    <Form className={classes.SignUp}>
+                        <CustomTextInput label="Full Name" name="fullName" type="text" />
                         <CustomTextInput label="Email" name="email" type="email" />
                         <CustomTextInput label="Password" name="password" type="password" />
                         <CustomCheckbox name="acceptedTerms">
                             I accept the terms and conditions
                         </CustomCheckbox>
-                        <button className={classes.signInBtn} type="submit">{props.isSubmitting ? 'Loading...' : 'Submit'}</button>
+                        <button className={classes.signUpBtn} type="submit">{props.isSubmitting ? 'Loading...' : 'Submit'}</button>
 
                         <h3 className={classes.Or}>- or -</h3>
                         <button className={classes.btnFacebook}>
                             {/* <i className="fa fa-facebook"></i> */}
-                            Sign in with Facebook
+                            Sign up with Facebook
                         </button>
                         <button className={classes.btnGoogle}>
                             {/* <i className="fa fa-facebook"></i> */}
-                            Sign in with Google
+                            Sign up with Google
                         </button>
                     </Form>
                 )}
@@ -107,4 +111,4 @@ const SignIn = () => {
         </>
     )
 }
-export default SignIn
+export default SignUp
